@@ -1,6 +1,6 @@
 // player.js
 
-import Scrabble from 'scrabble';
+import Scrabble from 'app/models/scrabble';
 
 const Player = function(name) {
   this.name = name;

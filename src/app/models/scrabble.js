@@ -8,7 +8,8 @@ const Scrabble = function() {};
 // Get the score for a single letter
 Scrabble.prototype.scoreLetter = function(letter) {
   letter = letter.toUpperCase();
-  var letters = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T', 'D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V', 'W', 'Y', 'K', 'J', 'X', 'Q', 'Z'];
+  var letters = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T', 'D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V',
+   'W', 'Y', 'K', 'J', 'X', 'Q', 'Z'];
   var scores = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 8, 8, 10, 10];
   for (var i = 0; i < letters.length; i++){
     if (letters[i] == letter){
