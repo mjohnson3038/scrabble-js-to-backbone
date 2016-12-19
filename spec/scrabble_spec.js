@@ -1,6 +1,6 @@
 // spec/scrabble_spec.js
 
-import Scrabble from 'scrabble';
+import Scrabble from 'app/models/scrabble';
 
 
 describe('Scrabble', function() {

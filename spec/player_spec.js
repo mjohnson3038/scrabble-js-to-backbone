@@ -1,6 +1,6 @@
 // spec/player_spec.js
 
-import Player from 'player';
+import Player from 'app/models/player';
 
 describe('Player', function() {
   var player;
