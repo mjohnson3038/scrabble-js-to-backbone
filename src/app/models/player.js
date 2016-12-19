@@ -5,9 +5,17 @@ import Backbone from 'backbone';
 import Scrabble from 'app/models/scrabble';
 
 const Player = Backbone.Model.extend({
-  initialize: function(name) {
-    this.name = name;
-    this.plays = [];
+  // To make these things part of the model so we can get and set them.
+  defaults: {
+    name: 'ada lovelace',
+    plays: []
+  },
+
+  // in defaults, we are creating attributes that can interact with teh model. Wehere are this.scrabble is saying this is something you have access to.
+
+  // change from name to options which is the model being passed in.
+  initialize: function(options) {
+    // this.scrabble in the initialize gives it a property
     this.scrabble = new Scrabble();
   },
 
@@ -17,25 +25,25 @@ const Player = Backbone.Model.extend({
 
   totalScore: function() {
     var total = 0;
-    for (var i = 0; i < this.plays.length; i++){
-      total += this.scrabble.score(this.plays[i]);
+    for (var i = 0; i < this.get('plays').length; i++){
+      total += this.scrabble.score(this.get('plays')[i]);
     }
     return total;
   },
 
   highestScoringWord: function() {
-    return this.scrabble.highestScoreFrom(this.plays);
+    return this.scrabble.highestScoreFrom(this.get('plays'));
   },
 
   highestWordScore: function() {
-    return this.scrabble.score(this.scrabble.highestScoreFrom(this.plays));
+    return this.scrabble.score(this.scrabble.highestScoreFrom(this.get('plays')));
   },
 
   play: function(word) {
     if (this.hasWon()){
       return false;
     } else {
-      this.plays.push(word);
+      this.get('plays').push(word);
     }
   }
 
